@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css" />
+  <title>Level Editor</title>
+</head>
+
+<body>
+  <div id="applog">
+  </div>
+  <div id="admin" class="content">
+     
+    <div class="heading">
+      <h2>Add a Level</h2>
+    </div>
+    <div class="add">
+      <div class="form">
+        <p>Level Name: <input v-model="name">
+        </p>
+        <p>Difficulty Rating: <input type="number" min="1" max="10" v-model="addPrice">
+        </p>
+        <div class="controls">
+        <p>Level Layout: </p><select id="color">
+  <option value="0">Enemy</option>
+  <option value="1">Wall</option>
+  <option value="2">Empty</option>
+</select>
+          <br>
+          <button class="button" id="submit">Fill</button>
+      </div>
+      </div>
+      <canvas id="place" height="1000" width="1000"></canvas>
+        
+        <button @click="upload">Publish Level</button>
+      </div>
+      <div class="upload" v-if="addItem">
+        <h2>{{addItem.name}}</h2>
+        {{addItem.Description}}
+      </div>
+    
+    <br>
+    
+    <div class="heading">
+      <h2>Current Products</h2>
+    </div>
+    <div class="image" v-for="item in items">
+      <hr>
+      <button @click="deleteItem(item)">Remove</button>
+        <br>"{{item.name}}"<br>
+        <p>{{item.description}}</p>
+      </div>
+      </div>
+    <a href="/index.html">Home</a>
+    <p></p>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js" integrity="sha256-mpnrJ5DpEZZkwkE1ZgkEQQJW/46CSEh/STrZKOB/qoM=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.7/vue.js" integrity="sha256-g+Q8DFAmG5+eyRPSydX0LY4TfjsL11XSDrIGerbbEdA=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery.min.js"></script>
+  <script type="text/javascript" src="/scriptLog.js"></script>
+  <script type="text/javascript" src="/admin.js"></script>
+  
+</body>
+<footer>
+  
+</footer>
+
+</html>
